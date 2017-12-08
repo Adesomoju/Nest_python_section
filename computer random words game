@@ -1,0 +1,57 @@
+#4. Create a game where the computer picks a random word and
+#the player has to guess that word. The computer tells the
+#player how many letters are in the word. Then the player gets
+#five chances to ask if a letter is in the word. The computer can
+#only respond with “yes” or “no”. Then, the player must guess
+#the word.
+
+import random
+comp_words = ('lovely', 'epignosis', 'reactive', 'awesomely', 'fantastic')
+rnd_words = random.choice(comp_words)
+correct = rnd_words
+print('you would hardly get this..lol!!!!\n let the game begin...')
+len_words = len(correct)
+print('The word has just ',len_words,' characters')
+guess = input('try to guess the word: ')
+trial = 0
+
+while guess != correct:
+    
+    print('sorry!!, i told you its difficult,thats not the answer..')
+    print('\n\ndo you want to try again?')
+    ibere = input('\n\nyeah or nee: ')
+    
+    if ibere == 'yeah':
+        
+        print('\n\nyou can ask if a letter is in the computers word')
+        print('\n\nyou have only 5 trials')
+        
+        ask = input('oyaa ask oooo: ')
+        
+        while trial != 5:
+            if ask in correct:
+                print('yes')
+                ask = input('oyaa ask oooo: ')
+                trial += 1
+            else:
+                print('no')
+                ask = input('oyaa ask oooo: ')
+                trial += 1
+            while trial == 5:
+                print('\n\nyou have reached the maximum trials')
+                guess = input('guess the word again!!: ')
+                if guess != correct:
+                    print('sorry, you are perfectly wrong')
+                    print('\n\nthe answer is ',correct.upper(),' and the has just ',len_words,' letters')
+                    break
+        
+            
+        
+
+    else:
+        print('all the best fun ee oo')
+        print('\n\nthe answer is ',correct.upper(),' and the has just ',len_words,' letters')
+        break
+    
+    
+
