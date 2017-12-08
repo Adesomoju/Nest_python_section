@@ -1,0 +1,46 @@
+#3. Improve “Word Jumble” so that each word is paired with a hint
+#The player should be able to see the hint if he or she is stuck.
+#Add a scoring system that rewards players who solve a jumble
+#without asking for the hint.
+
+import random
+WORDS =('python','jumble','easy','difficult','answer','xylophone')
+hint = ('snake', 'jumb','simple','hard','respond','instrument')
+word = random.choice(WORDS)
+correct = word
+jumble =""
+count = 0
+while word:
+    position = random.randrange(len(word))
+    jumble += word[position]
+    word = word[:position]+word[(position + 1):]
+print('start the game')
+print('the jumble is: ',jumble)
+guess = input('\n your guess: ')
+while guess != correct and guess != "":
+    print('sorry, that was not it.')
+    print('do you want an hint?')
+    answer = input('yes or no: ')
+    if answer == 'yes':
+        if correct == 'python':
+            print(hint[0])
+        elif correct == 'jumble':
+            print(hint[1])
+        elif correct == 'easy':
+            print(hint[2])
+        elif correct == 'difficult':
+            print(hint[3])
+        elif correct == 'answer':
+            print(hint[4])
+        elif correct == 'xylophone':
+            print(hint[5])
+        
+    else:
+        print ('all the best fun e ooo!!!')
+    guess = input('your guess: ')
+if guess == correct:
+    count += 5
+    print('that is it!!. you guess correctly')
+    print('you got ',count,' mark')
+
+print('thanks for playing!!')
